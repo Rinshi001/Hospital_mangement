@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approved Bookings</title>
+</head>
+<body>
+
+    <h1>Approved Bookings</h1>
+    <div class="container">
+        <table class="=table table-primary table-bordered" border="2px" >
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Appointment Date</th>
+                <th>Symptoms</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.patient.user_id.username }}</td>
+                    <td>{{ booking.doctor.user_id.username }}</td>
+                    <td>{{ booking.appointment_date }}</td>
+                    <td>{{ booking.symptoms }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

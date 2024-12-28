@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookings by Doctor</title>
+</head>
+<body>
+    <h1>Bookings by Doctor</h1>
+    {% if bookings_by_doctor %}
+        <ul>
+            {% for doctor, bookings in bookings_by_doctor.items %}
+                <li>
+                    <h2>{{ doctor.user_id.first_name }} {{ doctor.user_id.last_name }}</h2>
+                    <ul>
+                        {% if bookings %}
+                            {% for booking in bookings %}
+                                <li>
+                                    Booking ID: {{ booking.id }} - 
+                                    Patient: {{ booking.patient.user_id.first_name }} {{ booking.patient.user_id.last_name }} - 
+                                    Date: {{ booking.date }}
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>No bookings for this doctor.</li>
+                        {% endif %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookings found.</p>
+    {% endif %}
+</body>
+</html>

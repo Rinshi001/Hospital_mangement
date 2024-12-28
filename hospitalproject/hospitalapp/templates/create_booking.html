@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if booking %}Update{% else %}Create{% endif %} Booking</title>
+</head>
+<body>
+    <h1>{% if booking %}Update{% else %}Create{% endif %} Booking</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if booking %}Update{% else %}Book{% endif %} Appointment</button>
+    </form>
+</body>
+</html>
